@@ -1,0 +1,37 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/anna-kristín-newton",         "destination": "/salfraedingar/anna-kristin-newton",    "permanent": true },
+    { "source": "/anna-krist%C3%ADn-newton",    "destination": "/salfraedingar/anna-kristin-newton",    "permanent": true },
+
+    { "source": "/copy-of-anna-kristín-newton",      "destination": "/salfraedingar/asta-sigurdardottir", "permanent": true },
+    { "source": "/copy-of-anna-krist%C3%ADn-newton", "destination": "/salfraedingar/asta-sigurdardottir", "permanent": true },
+
+    { "source": "/erla-guðmundsdóttir",                  "destination": "/salfraedingar/erla-gudmundsdottir", "permanent": true },
+    { "source": "/erla-gu%C3%B0mundsd%C3%B3ttir",        "destination": "/salfraedingar/erla-gudmundsdottir", "permanent": true },
+
+    { "source": "/1", "destination": "/salfraedingar/linzi-trosh",    "permanent": true },
+    { "source": "/2", "destination": "/salfraedingar/petur-orn-svansson", "permanent": true },
+
+    { "source": "/trausti-valsson", "destination": "/salfraedingar/trausti-valsson", "permanent": true },
+
+    { "source": "/ástrún-á-jónsdóttir",                       "destination": "/salfraedingar/asrun-a-jonsdottir", "permanent": true },
+    { "source": "/%C3%A1str%C3%BAn-%C3%A1-j%C3%B3nsd%C3%B3ttir", "destination": "/salfraedingar/asrun-a-jonsdottir", "permanent": true },
+
+    { "source": "/elvar-friðriksson",      "destination": "/salfraedingar/elvar-fridriksson", "permanent": true },
+    { "source": "/elvar-fri%C3%B0riksson", "destination": "/salfraedingar/elvar-fridriksson", "permanent": true },
+
+    { "source": "/haukur-haraldsson", "destination": "/salfraedingar/haukur-haraldsson", "permanent": true },
+
+    { "source": "/copy-of-trausti-valsson", "destination": "/salfraedingar/thorbjorg-sveinsdottir", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

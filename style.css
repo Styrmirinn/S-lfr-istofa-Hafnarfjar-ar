@@ -1,0 +1,426 @@
+/* ==========================================================================
+   Sálfræðistofa Hafnarfjarðar — salhfn.is
+   Static rebuild of the Wix site. Measurements taken from the live site
+   at a 1905px content width.
+   ========================================================================== */
+
+:root {
+  --ink:            #333333;
+  --ink-muted:      #5c5c5c;
+  --btn-border:     #c9c9c6;
+  --page-blue:      #dde8eb;
+  --card-width:     980px;
+  --profile-photo:  340px;
+  --rule:           #e4e4e2;
+  --footer-bg:      #f6f6f4;
+  --white:          #ffffff;
+  --content-width:  980px;
+  --grid-width:     904px;
+  --col-width:      387px;
+  --col-gap:        130px;
+  --row-gap:         60px;
+  --portrait:       350px;
+
+  --font-body:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-brand: "Cormorant Garamond", "Times New Roman", Times, serif;
+
+  --hero-height:  837px;
+}
+
+/* --------------------------------------------------------------- reset -- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 28px;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a { color: inherit; }
+
+/* ---------------------------------------------------------------- hero -- */
+
+.hero {
+  position: relative;
+  height: var(--hero-height);
+  overflow: hidden;
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 39px 20px 0;
+  text-align: center;
+}
+
+/* Wordmark. The original ships this as logo-hvitt.png (456×122, displayed
+   at 580×157). Rendered as live text here so it stays crisp and indexable —
+   drop the PNG in and swap the markup if you'd rather keep the exact file. */
+.wordmark {
+  font-family: var(--font-brand);
+  font-weight: 300;
+  font-size: 58px;
+  line-height: 1.06;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+  max-width: 580px;
+  margin-inline: auto;
+}
+
+.hero__intro {
+  max-width: 683px;
+  margin: 15px auto 0;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------- psychologists -- */
+
+.team {
+  padding: 45px 20px 0;
+}
+
+.team__title {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  font-size: 56px;
+  line-height: 67px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--ink);
+}
+
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(2, var(--col-width));
+  grid-template-rows: repeat(5, auto);
+  grid-auto-flow: column;
+  column-gap: var(--col-gap);
+  row-gap: var(--row-gap);
+  justify-content: center;
+  max-width: var(--grid-width);
+  margin: 57px auto 0;
+}
+
+/* Cards stretch to the height of their row, and the button is pushed to the
+   bottom of the card, so the pair sitting side by side always lines up. */
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.person__photo {
+  width: var(--portrait);
+  height: var(--portrait);
+  aspect-ratio: 1 / 1;
+  flex: none;
+  margin: 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.person__name {
+  margin: 17px 0 0;
+  font-size: 35px;
+  line-height: 42px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.person__bio {
+  margin: 14px 0 18px;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--ink);
+}
+
+.person__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: auto;   /* pins the button to the bottom of the card */
+  padding: 11px 24px;
+  font-size: 17px;
+  line-height: 24px;
+  color: var(--ink);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--btn-border);
+  border-radius: 2px;
+  transition: background .18s ease, border-color .18s ease,
+              color .18s ease, transform .18s ease;
+}
+
+.person__arrow {
+  transition: transform .18s ease;
+}
+
+.person__link:hover,
+.person__link:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.person__link:hover .person__arrow,
+.person__link:focus-visible .person__arrow {
+  transform: translateX(4px);
+}
+
+.person__link:active {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------- sub-page (profile) -- */
+
+/* Sub-pages sit on the pale blue ground the Wix originals use, with the
+   content on a white card: portrait and contact left, name and bio right. */
+body.subpage { background: var(--page-blue); }
+
+.subhead {
+  position: relative;
+  max-width: var(--card-width);
+  margin: 0 auto;
+  padding: 34px 20px 26px;
+  text-align: center;
+}
+
+.subhead__brand {
+  font-family: var(--font-brand);
+  font-weight: 300;
+  font-size: 42px;
+  line-height: 1.08;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.subhead__brand:hover { color: var(--ink-muted); }
+
+/* Same button language as "Lesa nánar", mirrored: the arrow points back. */
+.subhead__back {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 20px;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--white);
+  border: 1px solid var(--btn-border);
+  border-radius: 2px;
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.subhead__back .person__arrow { transition: transform .18s ease; }
+
+.subhead__back:hover,
+.subhead__back:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+.subhead__back:hover .person__arrow,
+.subhead__back:focus-visible .person__arrow { transform: translateX(-4px); }
+
+.card {
+  max-width: var(--card-width);
+  margin: 0 auto;
+  background: var(--white);
+  padding: 50px 60px 60px;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: var(--profile-photo) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.profile__photo {
+  width: var(--profile-photo);
+  height: var(--profile-photo);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.profile__contact {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.profile__contact h2 {
+  margin: 0 0 6px;
+  font-size: 25px;
+  line-height: 35px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.profile__mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--ink);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.profile__mail:hover,
+.profile__mail:focus-visible { text-decoration: underline; }
+
+.profile__mail svg { flex: none; }
+
+.profile__name {
+  margin: 0 0 10px;
+  font-size: 40px;
+  line-height: 56px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--ink);
+}
+
+.profile__bio p {
+  margin: 0 0 22px;
+  font-size: 16px;
+  line-height: 22.4px;
+  color: var(--ink);
+}
+
+.profile__bio p:last-child { margin-bottom: 0; }
+
+@media (max-width: 860px) {
+  .subhead            { padding-top: 26px; }
+  .subhead__brand     { font-size: 26px; }
+  .subhead__back      { position: static; transform: none; display: inline-block;
+                        margin-top: 14px; }
+  .card               { padding: 32px 24px 40px; }
+  .profile            { grid-template-columns: minmax(0, 1fr); gap: 26px;
+                        justify-items: center; }
+  .profile__photo     { width: 260px; height: 260px; }
+  .profile__name      { font-size: 30px; line-height: 40px; }
+}
+
+/* -------------------------------------------------------------- footer -- */
+
+.site-footer {
+  margin-top: 150px;
+  padding: 56px 20px 60px;
+  background: var(--footer-bg);
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  color: var(--ink);
+}
+
+body.subpage .site-footer {
+  margin-top: 74px;
+  background: var(--white);
+  border-top: 0;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.site-footer__org {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.01em;
+}
+
+.site-footer address {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--ink-muted);
+}
+
+/* --------------------------------------------------------- breakpoints -- */
+
+@media (max-width: 1100px) {
+  :root {
+    --col-gap:  60px;
+    --portrait: 300px;
+  }
+  .team__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 820px;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --hero-height: 560px;
+    --portrait:    260px;
+  }
+  .hero__inner     { padding-top: 64px; }
+  .wordmark        { font-size: 34px; }
+  .hero__intro     { font-size: 17px; line-height: 25px; }
+  .team__title     { font-size: 36px; line-height: 44px; }
+  .person__name    { font-size: 27px; line-height: 34px; }
+  .person__bio,
+  .person__link    { font-size: 17px; line-height: 25px; }
+
+  .team__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-auto-flow: row;
+    row-gap: 56px;
+    max-width: 420px;
+  }
+
+  .site-footer            { margin-top: 80px; padding: 44px 20px 48px; }
+  .site-footer__org       { font-size: 18px; line-height: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
