@@ -43,11 +43,6 @@
       "permanent": true
     },
     {
-      "source": "/trausti-valsson",
-      "destination": "/trausti-valsson",
-      "permanent": true
-    },
-    {
       "source": "/ástrún-á-jónsdóttir",
       "destination": "/asrun-a-jonsdottir",
       "permanent": true
@@ -65,11 +60,6 @@
     {
       "source": "/elvar-fri%C3%B0riksson",
       "destination": "/elvar-fridriksson",
-      "permanent": true
-    },
-    {
-      "source": "/haukur-haraldsson",
-      "destination": "/haukur-haraldsson",
       "permanent": true
     },
     {

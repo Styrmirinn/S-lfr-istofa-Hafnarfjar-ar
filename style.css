@@ -102,6 +102,22 @@ a { color: inherit; }
   color: var(--ink);
 }
 
+/* Hero text settles in on load — wordmark first, intro just behind it.
+   Runs on page load, not on scroll, and is finished inside a second. */
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.wordmark,
+.hero__intro {
+  animation: heroRise .7s cubic-bezier(.22, .61, .36, 1) both;
+  will-change: opacity, transform;
+}
+
+.wordmark    { animation-delay: .08s; }
+.hero__intro { animation-delay: .28s; }
+
 /* ------------------------------------------------------- psychologists -- */
 
 .team {
@@ -332,11 +348,15 @@ body.subpage { background: var(--page-blue); }
 
 .profile__bio p:last-child { margin-bottom: 0; }
 
+/* Tablet and below: drop the Tilbaka button. The wordmark still links home,
+   so there is always a way back. */
+@media (max-width: 1024px) {
+  .subhead__back { display: none; }
+}
+
 @media (max-width: 860px) {
   .subhead            { padding-top: 26px; }
   .subhead__brand     { font-size: 26px; }
-  .subhead__back      { position: static; transform: none; display: inline-block;
-                        margin-top: 14px; }
   .card               { padding: 32px 24px 40px; }
   .profile            { grid-template-columns: minmax(0, 1fr); gap: 26px;
                         justify-items: center; }
