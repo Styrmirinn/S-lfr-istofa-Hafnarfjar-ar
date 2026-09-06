@@ -2,35 +2,90 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/anna-kristín-newton",         "destination": "/salfraedingar/anna-kristin-newton",    "permanent": true },
-    { "source": "/anna-krist%C3%ADn-newton",    "destination": "/salfraedingar/anna-kristin-newton",    "permanent": true },
-
-    { "source": "/copy-of-anna-kristín-newton",      "destination": "/salfraedingar/asta-sigurdardottir", "permanent": true },
-    { "source": "/copy-of-anna-krist%C3%ADn-newton", "destination": "/salfraedingar/asta-sigurdardottir", "permanent": true },
-
-    { "source": "/erla-guðmundsdóttir",                  "destination": "/salfraedingar/erla-gudmundsdottir", "permanent": true },
-    { "source": "/erla-gu%C3%B0mundsd%C3%B3ttir",        "destination": "/salfraedingar/erla-gudmundsdottir", "permanent": true },
-
-    { "source": "/1", "destination": "/salfraedingar/linzi-trosh",    "permanent": true },
-    { "source": "/2", "destination": "/salfraedingar/petur-orn-svansson", "permanent": true },
-
-    { "source": "/trausti-valsson", "destination": "/salfraedingar/trausti-valsson", "permanent": true },
-
-    { "source": "/ástrún-á-jónsdóttir",                       "destination": "/salfraedingar/asrun-a-jonsdottir", "permanent": true },
-    { "source": "/%C3%A1str%C3%BAn-%C3%A1-j%C3%B3nsd%C3%B3ttir", "destination": "/salfraedingar/asrun-a-jonsdottir", "permanent": true },
-
-    { "source": "/elvar-friðriksson",      "destination": "/salfraedingar/elvar-fridriksson", "permanent": true },
-    { "source": "/elvar-fri%C3%B0riksson", "destination": "/salfraedingar/elvar-fridriksson", "permanent": true },
-
-    { "source": "/haukur-haraldsson", "destination": "/salfraedingar/haukur-haraldsson", "permanent": true },
-
-    { "source": "/copy-of-trausti-valsson", "destination": "/salfraedingar/thorbjorg-sveinsdottir", "permanent": true }
+    {
+      "source": "/anna-kristín-newton",
+      "destination": "/anna-kristin-newton",
+      "permanent": true
+    },
+    {
+      "source": "/anna-krist%C3%ADn-newton",
+      "destination": "/anna-kristin-newton",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-anna-kristín-newton",
+      "destination": "/asta-sigurdardottir",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-anna-krist%C3%ADn-newton",
+      "destination": "/asta-sigurdardottir",
+      "permanent": true
+    },
+    {
+      "source": "/erla-guðmundsdóttir",
+      "destination": "/erla-gudmundsdottir",
+      "permanent": true
+    },
+    {
+      "source": "/erla-gu%C3%B0mundsd%C3%B3ttir",
+      "destination": "/erla-gudmundsdottir",
+      "permanent": true
+    },
+    {
+      "source": "/1",
+      "destination": "/linzi-trosh",
+      "permanent": true
+    },
+    {
+      "source": "/2",
+      "destination": "/petur-orn-svansson",
+      "permanent": true
+    },
+    {
+      "source": "/trausti-valsson",
+      "destination": "/trausti-valsson",
+      "permanent": true
+    },
+    {
+      "source": "/ástrún-á-jónsdóttir",
+      "destination": "/asrun-a-jonsdottir",
+      "permanent": true
+    },
+    {
+      "source": "/%C3%A1str%C3%BAn-%C3%A1-j%C3%B3nsd%C3%B3ttir",
+      "destination": "/asrun-a-jonsdottir",
+      "permanent": true
+    },
+    {
+      "source": "/elvar-friðriksson",
+      "destination": "/elvar-fridriksson",
+      "permanent": true
+    },
+    {
+      "source": "/elvar-fri%C3%B0riksson",
+      "destination": "/elvar-fridriksson",
+      "permanent": true
+    },
+    {
+      "source": "/haukur-haraldsson",
+      "destination": "/haukur-haraldsson",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-trausti-valsson",
+      "destination": "/thorbjorg-sveinsdottir",
+      "permanent": true
+    }
   ],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/(.*\\.(?:jpg|png|css))",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ]
